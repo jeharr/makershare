@@ -3,8 +3,7 @@
 /* Base */
 
 html {
-  background: #f9b8b4;
-  background: url('bg-stars.png') repeat-x center top, linear-gradient(to bottom, #f9b8b4 0%, #ebe8ba 100%) no-repeat center; /* W3C */
+  background: #99D6FF;
   min-height: 100%;
 }
 
@@ -53,8 +52,8 @@ form, .city-list {
 legend {
   font-weight: bold;
   margin: 0;
-  margin-bottom: 10px;
-  padding: 0;
+  margin-bottom: 15px;
+  padding: 5;
 }
 input {
   border: 0;
