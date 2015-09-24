@@ -3,8 +3,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res){
-  res.json("gonna make it");
-});
+var routes = require('./routes.js');
+app.use('/users', routes);
 
 module.exports = app;

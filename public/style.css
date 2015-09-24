@@ -43,7 +43,7 @@ a:active {
   color: #333;
 }
 
-form, .city-list {
+form, .user-list {
   background: white;
   margin-bottom: 20px;
   padding: 20px;
@@ -83,12 +83,8 @@ input[type="submit"] {
   width: auto;
 }
 
-.city-list li::after {
+.user-list li::after {
   clear: both;
   content: '';
   display: table;
-}
-.city-list li a:last-child {
-  float: left;
-  padding-right: 10px;
 }

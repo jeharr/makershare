@@ -1,55 +1,36 @@
 $(function(){
 
-  $.get('/cities', appendToList);
+  $.get('/users', appendToList);
 
   $('form').on('submit', function(event) {
     event.preventDefault();
 
     var form = $(this);
-    var cityData = form.serialize();
-
-    $('.alert').hide();
+    var userData = form.serialize();
 
     $.ajax({
-      type: 'POST', url: '/cities', data: cityData
+      type: 'POST', url: '/users', data: userData
     })
-    .error(function() {
-      $('.alert').show();
-    })
-    .success(function(cityName){
-      appendToList([cityName]);
+    .success(function(userName){
+      console.log(userName);
+      appendToList([userName]);
       form.trigger('reset');
     });
   });
 
-  function appendToList(cities) {
+  function appendToList(users) {
     var list = [];
-    var content, city;
-    for(var i in cities){
-      city = cities[i];
-      content = '<a href="/cities/'+city+'">'+city+'</a>'+ // + // example on how to serve static images
-        ' <a href="#" data-city="'+city+'">'+
-        '<img src="delete.png" width="15px"></a>';
+    var content, user;
+    console.log(users);
+    for(var i in users){
+      user = users[i];
+      content = '<p >'+user+ '</p>';
       list.push($('<li>', { html: content }));
     }
 
-    $('.city-list').append(list)
+    $('.user-list').append(list)
   }
 
-
-  $('.city-list').on('click', 'a[data-city]', function (event) {
-    if(!confirm('Are you sure ?')){
-      return false;
-    }
-
     var target = $(event.currentTarget);
-
-    $.ajax({
-      type: 'DELETE',
-      url: '/cities/' + target.data('city')
-    }).done(function () {
-      target.parents('li').remove();
-    });
-  });
 
 });
